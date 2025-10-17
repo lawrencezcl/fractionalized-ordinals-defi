@@ -5,53 +5,140 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Vault } from "lucide-react"
 import { ImageIcon } from "lucide-react"
-import { useState } from "react"
+import { Loader2 } from "lucide-react"
+import { useState, useEffect } from "react"
 import { VaultDialog } from "./vault-dialog"
+import { xverseWallet, Inscription } from "@/lib/wallets/xverse"
+import { ordinalsPriceOracle } from "@/lib/oracles/price-oracle"
 
-interface Ordinal {
-  id: string
-  name: string
-  inscription: string
-  collection: string
+interface OrdinalWithPrice extends Inscription {
   floorPrice: number
-  image: string
+  displayImage: string
 }
 
 export function MyOrdinals() {
-  const [selectedOrdinal, setSelectedOrdinal] = useState<Ordinal | null>(null)
+  const [selectedOrdinal, setSelectedOrdinal] = useState<OrdinalWithPrice | null>(null)
   const [dialogOpen, setDialogOpen] = useState(false)
+  const [ordinals, setOrdinals] = useState<OrdinalWithPrice[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [walletConnected, setWalletConnected] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  // Mock data
-  const ordinals: Ordinal[] = [
-    {
-      id: "1",
-      name: "Bitcoin Punk #1234",
-      inscription: "a1b2c3d4e5f6...",
-      collection: "Bitcoin Punks",
-      floorPrice: 0.5,
-      image: "/bitcoin-punk-nft.jpg",
-    },
-    {
-      id: "2",
-      name: "Ordinal Monkey #567",
-      inscription: "f6e5d4c3b2a1...",
-      collection: "Ordinal Monkeys",
-      floorPrice: 0.3,
-      image: "/abstract-monkey-nft.png",
-    },
-    {
-      id: "3",
-      name: "BTC Rock #89",
-      inscription: "9876543210ab...",
-      collection: "BTC Rocks",
-      floorPrice: 1.2,
-      image: "/rock-nft.jpg",
-    },
-  ]
+  useEffect(() => {
+    loadOrdinals()
+  }, [])
 
-  const handleVault = (ordinal: Ordinal) => {
+  const loadOrdinals = async () => {
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      // Check if wallet is connected
+      if (!xverseWallet.isAvailable()) {
+        throw new Error('Xverse wallet is not available. Please install the Xverse extension.')
+      }
+
+      const walletState = xverseWallet.getState()
+      if (!walletState.isConnected) {
+        setWalletConnected(false)
+        setIsLoading(false)
+        return
+      }
+
+      // Get supported Ordinals from wallet
+      const supportedOrdinals = await xverseWallet.getSupportedInscriptions()
+
+      // Fetch floor prices for each collection
+      const ordinalsWithPrices: OrdinalWithPrice[] = await Promise.all(
+        supportedOrdinals.map(async (inscription) => {
+          let floorPrice = 0
+
+          if (inscription.collection) {
+            try {
+              const priceResult = await ordinalsPriceOracle.getFloorPrice(inscription.collection.name)
+              if (priceResult.success && priceResult.data) {
+                // Convert from satoshis to BTC
+                floorPrice = priceResult.data.floorPrice / 100000000
+              }
+            } catch (priceError) {
+              console.warn('Failed to fetch floor price for collection:', inscription.collection.name)
+            }
+          }
+
+          return {
+            ...inscription,
+            floorPrice,
+            displayImage: inscription.preview || "/placeholder.svg"
+          }
+        })
+      )
+
+      setOrdinals(ordinalsWithPrices)
+      setWalletConnected(true)
+    } catch (error) {
+      console.error('Error loading ordinals:', error)
+      setError(error instanceof Error ? error.message : 'Failed to load ordinals')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const connectWallet = async () => {
+    try {
+      await xverseWallet.connect()
+      await loadOrdinals()
+    } catch (error) {
+      console.error('Error connecting wallet:', error)
+      setError(error instanceof Error ? error.message : 'Failed to connect wallet')
+    }
+  }
+
+  const handleVault = (ordinal: OrdinalWithPrice) => {
     setSelectedOrdinal(ordinal)
     setDialogOpen(true)
+  }
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center py-16">
+        <Loader2 className="h-8 w-8 animate-spin" />
+        <span className="ml-2">Loading your Ordinals...</span>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <Card>
+        <CardContent className="flex flex-col items-center justify-center py-16">
+          <div className="mb-4 text-center">
+            <h3 className="mb-2 text-lg font-semibold text-destructive">Error Loading Ordinals</h3>
+            <p className="text-sm text-muted-foreground mb-4">{error}</p>
+            <Button onClick={loadOrdinals}>Try Again</Button>
+          </div>
+        </CardContent>
+      </Card>
+    )
+  }
+
+  if (!walletConnected) {
+    return (
+      <Card>
+        <CardContent className="flex flex-col items-center justify-center py-16">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-muted">
+            <Vault className="h-8 w-8 text-muted-foreground" />
+          </div>
+          <h3 className="mb-2 text-lg font-semibold">Connect Your Wallet</h3>
+          <p className="text-center text-sm text-muted-foreground mb-4 max-w-sm">
+            Connect your Xverse wallet to view and vault your Bitcoin Ordinals
+          </p>
+          <Button onClick={connectWallet} className="gap-2">
+            <Vault className="h-4 w-4" />
+            Connect Xverse Wallet
+          </Button>
+        </CardContent>
+      </Card>
+    )
   }
 
   return (
@@ -66,30 +153,45 @@ export function MyOrdinals() {
           <Card key={ordinal.id} className="overflow-hidden">
             <div className="aspect-square relative bg-muted">
               <img
-                src={ordinal.image || "/placeholder.svg"}
-                alt={ordinal.name}
+                src={ordinal.displayImage}
+                alt={ordinal.collection?.name || 'Ordinal'}
                 className="h-full w-full object-cover"
               />
+              {ordinal.collection && (
+                <div className="absolute top-2 left-2">
+                  <Badge variant="secondary" className="bg-background/80">
+                    {ordinal.collection.name}
+                  </Badge>
+                </div>
+              )}
             </div>
             <CardHeader>
               <div className="flex items-start justify-between gap-2">
                 <div className="flex-1 min-w-0">
-                  <CardTitle className="text-lg truncate">{ordinal.name}</CardTitle>
-                  <CardDescription className="truncate">{ordinal.collection}</CardDescription>
+                  <CardTitle className="text-lg truncate">
+                    {ordinal.collection?.name || 'Unknown Collection'} #{ordinal.inscription_number}
+                  </CardTitle>
+                  <CardDescription className="truncate">
+                    Inscription #{ordinal.inscription_number}
+                  </CardDescription>
                 </div>
                 <Badge variant="secondary" className="shrink-0">
-                  {ordinal.floorPrice} BTC
+                  {ordinal.floorPrice > 0 ? `${ordinal.floorPrice.toFixed(4)} BTC` : 'Price unavailable'}
                 </Badge>
               </div>
             </CardHeader>
             <CardContent>
               <div className="mb-4 rounded-lg bg-muted p-3">
                 <div className="text-xs text-muted-foreground mb-1">Inscription ID</div>
-                <div className="font-mono text-sm truncate">{ordinal.inscription}</div>
+                <div className="font-mono text-sm truncate">{ordinal.id}</div>
               </div>
-              <Button onClick={() => handleVault(ordinal)} className="w-full gap-2">
+              <Button
+                onClick={() => handleVault(ordinal)}
+                className="w-full gap-2"
+                disabled={ordinal.floorPrice === 0}
+              >
                 <Vault className="h-4 w-4" />
-                Vault & Fractionalize
+                {ordinal.floorPrice === 0 ? 'Price Unavailable' : 'Vault & Fractionalize'}
               </Button>
             </CardContent>
           </Card>
@@ -102,15 +204,26 @@ export function MyOrdinals() {
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-muted">
               <ImageIcon className="h-8 w-8 text-muted-foreground" />
             </div>
-            <h3 className="mb-2 text-lg font-semibold">No Ordinals Found</h3>
+            <h3 className="mb-2 text-lg font-semibold">No Supported Ordinals Found</h3>
             <p className="text-center text-sm text-muted-foreground max-w-sm">
-              Connect your Xverse wallet to view your Bitcoin Ordinals
+              You don't have any Ordinals from supported collections. Currently supported: Bitcoin Punks, NodeMonkes, Bitcoin Frogs, Rocks, DeGods, and more.
             </p>
           </CardContent>
         </Card>
       )}
 
-      {selectedOrdinal && <VaultDialog ordinal={selectedOrdinal} open={dialogOpen} onOpenChange={setDialogOpen} />}
+      {selectedOrdinal && (
+        <VaultDialog
+          ordinal={{
+            id: selectedOrdinal.id,
+            name: `${selectedOrdinal.collection?.name || 'Unknown'} #${selectedOrdinal.inscription_number}`,
+            floorPrice: selectedOrdinal.floorPrice,
+            image: selectedOrdinal.displayImage
+          }}
+          open={dialogOpen}
+          onOpenChange={setDialogOpen}
+        />
+      )}
     </>
   )
 }

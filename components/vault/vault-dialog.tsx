@@ -34,10 +34,31 @@ export function VaultDialog({ ordinal, open, onOpenChange }: VaultDialogProps) {
 
   const handleVault = async () => {
     setIsVaulting(true)
-    // Simulate vaulting transaction
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    setIsVaulting(false)
-    onOpenChange(false)
+    try {
+      const { platformService } = await import("@/lib/services/platform-service")
+
+      const result = await platformService.createVault({
+        inscriptionId: ordinal.id,
+        totalShares,
+        pricePerShare
+      })
+
+      if (result.success) {
+        // Vault created successfully
+        console.log('Vault created:', result)
+        onOpenChange(false)
+        // You could show a success message or refresh the vault list
+      } else {
+        // Handle error
+        console.error('Vault creation failed:', result.error)
+        // Show error message to user
+      }
+    } catch (error) {
+      console.error('Error vaulting ordinal:', error)
+      // Show error message to user
+    } finally {
+      setIsVaulting(false)
+    }
   }
 
   const marketCap = totalShares * pricePerShare
