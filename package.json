@@ -18,7 +18,12 @@
     "testnet:deploy": "./scripts/launch-testnet.sh deploy",
     "testnet:start": "./scripts/launch-testnet.sh start",
     "server:prod": "NODE_ENV=production HOSTNAME=0.0.0.0 PORT=3000 node server.js",
-    "server:testnet": "NODE_ENV=production NEXT_PUBLIC_NETWORK_ENV=TESTNET HOSTNAME=0.0.0.0 PORT=3000 node server.js"
+    "server:testnet": "NODE_ENV=production NEXT_PUBLIC_NETWORK_ENV=TESTNET HOSTNAME=0.0.0.0 PORT=3000 node server.js",
+    "deploy:preview": "./scripts/auto-deploy.sh",
+    "deploy:prod": "DEPLOY_ENV=prod ./scripts/auto-deploy.sh",
+    "deploy:git": "./scripts/auto-deploy.sh git-only",
+    "deploy:vercel": "./scripts/auto-deploy.sh vercel-only",
+    "deploy:config": "./scripts/auto-deploy.sh config"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
