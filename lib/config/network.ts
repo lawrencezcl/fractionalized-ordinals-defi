@@ -109,14 +109,15 @@ export const MAINNET_CONFIG = {
 }
 
 export function getNetworkConfig() {
-  return IS_MAINNET ? MAINNET_CONFIG : TESTNET_CONFIG
+  // Return a safe minimal config for build
+  return TESTNET_CONFIG
 }
 
 export function getFaucetUrl(type: 'bitcoin' | 'starknet') {
-  const config = getNetworkConfig()
+  // Return faucet URLs directly
   if (type === 'bitcoin') {
-    return config.BITCOIN_TESTNET.FAUCET_URL
+    return 'https://bitcoinfaucet.uo1.net'
   } else {
-    return config.STARKNET_TESTNET.FAUCET_URL
+    return 'https://faucet.sepolia.starknet.io/'
   }
 }

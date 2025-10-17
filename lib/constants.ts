@@ -120,8 +120,8 @@ export const TOKENS = {
 } as const
 
 // Environment
-export const ENVIRONMENT = process.env.NEXT_PUBLIC_NETWORK_ENV || 'TESTNET'
-export const IS_MAINNET = ENVIRONMENT === 'MAINNET'
+export const ENVIRONMENT = process.env.NEXT_PUBLIC_NETWORK_ENV || 'PRODUCTION'
+export const IS_MAINNET = ENVIRONMENT === 'MAINNET' || ENVIRONMENT === 'PRODUCTION'
 
 // Error messages
 export const ERROR_MESSAGES = {
