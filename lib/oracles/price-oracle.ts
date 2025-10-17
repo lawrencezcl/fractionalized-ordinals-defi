@@ -30,6 +30,15 @@ export class OrdinalsPriceOracle {
   private readonly CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
 
   /**
+   * Get the appropriate API endpoint based on network
+   */
+  private getApiEndpoint(): string {
+    return NetworkConfig.isTestnet()
+      ? API_ENDPOINTS.MAGIC_EDEN_TESTNET
+      : API_ENDPOINTS.MAGIC_EDEN
+  }
+
+  /**
    * Get floor price for a specific Ordinals collection
    */
   async getFloorPrice(collectionName: string): Promise<OracleResponse> {
@@ -113,9 +122,11 @@ export class OrdinalsPriceOracle {
    */
   private async fetchFromMagicEden(collectionName: string): Promise<OracleResponse> {
     try {
+      const apiEndpoint = this.getApiEndpoint()
+
       // First, search for the collection
       const searchResponse = await axios.get(
-        `${API_ENDPOINTS.MAGIC_EDEN}/collections?q=${encodeURIComponent(collectionName)}&limit=10`
+        `${apiEndpoint}/collections?q=${encodeURIComponent(collectionName)}&limit=10`
       )
 
       if (!searchResponse.data?.collections?.length) {
@@ -127,7 +138,7 @@ export class OrdinalsPriceOracle {
 
       // Get collection stats
       const statsResponse = await axios.get(
-        `${API_ENDPOINTS.MAGIC_EDEN}/collections/${collectionSymbol}/stats`
+        `${apiEndpoint}/collections/${collectionSymbol}/stats`
       )
 
       if (!statsResponse.data) {
@@ -259,8 +270,9 @@ export class OrdinalsPriceOracle {
    */
   async getTrendingCollections(): Promise<OracleResponse> {
     try {
+      const apiEndpoint = this.getApiEndpoint()
       const response = await axios.get(
-        `${API_ENDPOINTS.MAGIC_EDEN}/collections/trending?limit=10`
+        `${apiEndpoint}/collections/trending?limit=10`
       )
 
       if (!response.data?.collections) {

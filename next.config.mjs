@@ -70,6 +70,19 @@ const nextConfig = {
       };
     }
 
+    // Enable WebAssembly support
+    config.experiments = {
+      ...config.experiments,
+      asyncWebAssembly: true,
+      syncWebAssembly: true,
+    };
+
+    // Handle WebAssembly modules
+    config.module.rules.push({
+      test: /\.wasm$/,
+      type: 'webassembly/async',
+    });
+
     // Optimize for production
     if (!isServer) {
       config.optimization = {

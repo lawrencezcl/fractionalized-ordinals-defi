@@ -8,7 +8,7 @@ import { ActiveLoans } from "./active-loans"
 
 export function LendingDashboard() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" data-testid="lending-interface">
       <LendingOverview />
 
       <Tabs defaultValue="borrow" className="w-full">

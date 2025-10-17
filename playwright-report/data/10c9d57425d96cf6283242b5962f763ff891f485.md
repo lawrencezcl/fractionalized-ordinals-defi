@@ -1,0 +1,232 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "OrdinalVault" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img [ref=e7]
+          - generic [ref=e12]: OrdinalVault
+        - navigation [ref=e13]:
+          - link "Features" [ref=e14] [cursor=pointer]:
+            - /url: "#features"
+          - link "How It Works" [ref=e15] [cursor=pointer]:
+            - /url: "#how-it-works"
+          - link "Vault" [ref=e16] [cursor=pointer]:
+            - /url: /vault
+          - link "Trade" [ref=e17] [cursor=pointer]:
+            - /url: /trade
+          - link "Docs" [ref=e18] [cursor=pointer]:
+            - /url: /docs
+        - generic [ref=e19]:
+          - generic [ref=e21]:
+            - generic [ref=e22]:
+              - generic [ref=e24]:
+                - img
+                - generic [ref=e25]: Testnet
+              - button [ref=e26]:
+                - img
+            - alert [ref=e27]:
+              - img [ref=e28]
+              - generic [ref=e31]:
+                - paragraph [ref=e32]: You are using Testnet
+                - list [ref=e33]:
+                  - listitem [ref=e34]: Transactions use testnet tokens with no real value
+                  - listitem [ref=e35]: All Ordinals and fractional shares are for testing only
+                  - listitem [ref=e36]: Use testnet faucets to get free tokens
+                  - listitem [ref=e37]: Data may be reset periodically
+            - generic [ref=e38]:
+              - heading "Network Information" [level=4] [ref=e39]
+              - generic [ref=e40]:
+                - generic [ref=e41]:
+                  - text: "Bitcoin Network:"
+                  - generic [ref=e42]:
+                    - text: Testnet
+                    - button [ref=e43]:
+                      - img
+                - generic [ref=e44]:
+                  - text: "Starknet Network:"
+                  - generic [ref=e45]:
+                    - text: Goerli Testnet
+                    - button [ref=e46]:
+                      - img
+              - generic [ref=e47]:
+                - img [ref=e48]
+                - generic [ref=e51]: Connected to testnet
+            - generic [ref=e52]:
+              - heading "Quick Actions" [level=4] [ref=e53]
+              - generic [ref=e54]:
+                - button "Get Testnet Funds" [ref=e55]:
+                  - img
+                  - text: Get Testnet Funds
+                - button "Xverse Wallet" [ref=e56]:
+                  - img
+                  - text: Xverse Wallet
+                - button "Argent Wallet" [ref=e57]:
+                  - img
+                  - text: Argent Wallet
+          - button "Connect Wallet" [active] [ref=e58]
+          - button "Launch App" [ref=e59]
+    - main [ref=e60]:
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - img [ref=e67]
+          - text: Powered by Bitcoin L1 & Starknet
+        - heading "Unlock the Value of Bitcoin Ordinals" [level=1] [ref=e69]
+        - paragraph [ref=e70]: Fractionalize expensive Bitcoin Ordinals into tradeable shares. Vault your NFTs on Bitcoin L1, trade on Starknet, and unlock DeFi opportunities.
+        - generic [ref=e71]:
+          - button "Start Vaulting" [ref=e72]:
+            - text: Start Vaulting
+            - img
+          - button "View Documentation" [ref=e73]
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e76]: $2.5M+
+            - generic [ref=e77]: Total Value Locked
+          - generic [ref=e78]:
+            - generic [ref=e79]: 150+
+            - generic [ref=e80]: Ordinals Vaulted
+          - generic [ref=e81]:
+            - generic [ref=e82]: 1,200+
+            - generic [ref=e83]: Active Traders
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - img [ref=e89]
+          - generic [ref=e92]: 24/7
+          - generic [ref=e93]: Trading Available
+          - generic [ref=e94]: Trade fractional shares anytime
+        - generic [ref=e95]:
+          - img [ref=e97]
+          - generic [ref=e99]: 100%
+          - generic [ref=e100]: Secure Vaulting
+          - generic [ref=e101]: Multi-sig Bitcoin custody
+        - generic [ref=e102]:
+          - img [ref=e104]
+          - generic [ref=e106]: <1s
+          - generic [ref=e107]: Transaction Speed
+          - generic [ref=e108]: Lightning-fast on Starknet
+        - generic [ref=e109]:
+          - img [ref=e111]
+          - generic [ref=e116]: 0%
+          - generic [ref=e117]: Platform Fees
+          - generic [ref=e118]: Launch period promotion
+      - generic [ref=e120]:
+        - generic [ref=e121]:
+          - heading "Everything You Need for Ordinals DeFi" [level=2] [ref=e122]
+          - paragraph [ref=e123]: A complete platform for fractionalizing, trading, and leveraging your Bitcoin Ordinals
+        - generic [ref=e124]:
+          - generic [ref=e125]:
+            - generic [ref=e126]:
+              - img [ref=e128]
+              - generic [ref=e139]: Secure Vaulting
+            - generic [ref=e141]: Deposit your Bitcoin Ordinals into a secure multi-signature vault on Bitcoin L1 using Xverse wallet integration.
+          - generic [ref=e142]:
+            - generic [ref=e143]:
+              - img [ref=e145]
+              - generic [ref=e150]: Fractional Shares
+            - generic [ref=e152]: Receive ERC-20 tokens on Starknet representing fractional ownership of vaulted Ordinals. Trade as little as 0.01%.
+          - generic [ref=e153]:
+            - generic [ref=e154]:
+              - img [ref=e156]
+              - generic [ref=e159]: Instant Trading
+            - generic [ref=e161]: Buy and sell fractional shares on Ekubo DEX with deep liquidity and minimal slippage.
+          - generic [ref=e162]:
+            - generic [ref=e163]:
+              - img [ref=e165]
+              - generic [ref=e168]: DeFi Lending
+            - generic [ref=e170]: Use your fractional shares as collateral on Vesu protocol to borrow stablecoins or other assets.
+          - generic [ref=e171]:
+            - generic [ref=e172]:
+              - img [ref=e174]
+              - generic [ref=e177]: Redemption Rights
+            - generic [ref=e179]: Collect 100% of shares to redeem the original Ordinal from the vault. Full ownership, full control.
+          - generic [ref=e180]:
+            - generic [ref=e181]:
+              - img [ref=e183]
+              - generic [ref=e186]: Cross-Chain Bridge
+            - generic [ref=e188]: Seamless bridging between Bitcoin L1 and Starknet powered by Starknet Asset Runes protocol.
+      - generic [ref=e190]:
+        - generic [ref=e191]:
+          - heading "How It Works" [level=2] [ref=e192]
+          - paragraph [ref=e193]: Four simple steps to unlock liquidity from your Bitcoin Ordinals
+        - generic [ref=e194]:
+          - generic [ref=e195]:
+            - generic [ref=e197]:
+              - generic [ref=e198]: "01"
+              - heading "Connect Your Wallet" [level=3] [ref=e199]
+              - paragraph [ref=e200]: Link your Xverse wallet for Bitcoin Ordinals and Starknet wallet for trading.
+            - img [ref=e202]
+          - generic [ref=e204]:
+            - generic [ref=e206]:
+              - generic [ref=e207]: "02"
+              - heading "Vault Your Ordinal" [level=3] [ref=e208]
+              - paragraph [ref=e209]: Deposit your Bitcoin Ordinal into our secure multi-sig vault on Bitcoin L1.
+            - img [ref=e211]
+          - generic [ref=e213]:
+            - generic [ref=e215]:
+              - generic [ref=e216]: "03"
+              - heading "Receive Fractional Shares" [level=3] [ref=e217]
+              - paragraph [ref=e218]: Get ERC-20 tokens on Starknet representing ownership. Set your own fractionalization ratio.
+            - img [ref=e220]
+          - generic [ref=e224]:
+            - generic [ref=e225]: "04"
+            - heading "Trade or Lend" [level=3] [ref=e226]
+            - paragraph [ref=e227]: Trade shares on Ekubo DEX or use them as collateral on Vesu lending protocol.
+      - generic [ref=e232]:
+        - heading "Ready to Fractionalize Your Ordinals?" [level=2] [ref=e233]
+        - paragraph [ref=e234]: Join the future of Bitcoin NFT liquidity. Start vaulting and trading today.
+        - generic [ref=e235]:
+          - button "Launch App" [ref=e236]:
+            - text: Launch App
+            - img
+          - button "Read Documentation" [ref=e237]
+    - contentinfo [ref=e238]:
+      - generic [ref=e239]:
+        - generic [ref=e240]:
+          - generic [ref=e241]:
+            - link "OrdinalVault" [ref=e242] [cursor=pointer]:
+              - /url: /
+              - img [ref=e244]
+              - generic [ref=e249]: OrdinalVault
+            - paragraph [ref=e250]: Fractionalize Bitcoin Ordinals and unlock DeFi opportunities on Starknet.
+          - generic [ref=e251]:
+            - heading "Product" [level=3] [ref=e252]
+            - list [ref=e253]:
+              - listitem [ref=e254]:
+                - link "Vault Ordinals" [ref=e255] [cursor=pointer]:
+                  - /url: /vault
+              - listitem [ref=e256]:
+                - link "Trade Shares" [ref=e257] [cursor=pointer]:
+                  - /url: /trade
+              - listitem [ref=e258]:
+                - link "Lending" [ref=e259] [cursor=pointer]:
+                  - /url: /lend
+          - generic [ref=e260]:
+            - heading "Resources" [level=3] [ref=e261]
+            - list [ref=e262]:
+              - listitem [ref=e263]:
+                - link "Documentation" [ref=e264] [cursor=pointer]:
+                  - /url: /docs
+              - listitem [ref=e265]:
+                - link "API Reference" [ref=e266] [cursor=pointer]:
+                  - /url: /docs/api
+              - listitem [ref=e267]:
+                - link "FAQ" [ref=e268] [cursor=pointer]:
+                  - /url: /faq
+          - generic [ref=e269]:
+            - heading "Community" [level=3] [ref=e270]
+            - list [ref=e271]:
+              - listitem [ref=e272]:
+                - link "Twitter" [ref=e273] [cursor=pointer]:
+                  - /url: https://twitter.com
+              - listitem [ref=e274]:
+                - link "Discord" [ref=e275] [cursor=pointer]:
+                  - /url: https://discord.com
+              - listitem [ref=e276]:
+                - link "GitHub" [ref=e277] [cursor=pointer]:
+                  - /url: https://github.com
+        - paragraph [ref=e279]: © 2025 OrdinalVault. All rights reserved.
+  - alert [ref=e280]
+```

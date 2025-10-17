@@ -1,0 +1,240 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "Back" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - button "Back" [ref=e8]:
+            - img
+            - text: Back
+        - generic [ref=e9]:
+          - heading "Trade Fractional Shares" [level=1] [ref=e10]
+          - paragraph [ref=e11]: Buy and sell Ordinal shares on Ekubo DEX
+      - button "Connect Starknet Wallet" [ref=e13]:
+        - img
+        - text: Connect Starknet Wallet
+    - generic [ref=e15]:
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: Markets
+          - generic [ref=e20]:
+            - img [ref=e21]
+            - textbox "Search markets..." [ref=e24]
+        - generic [ref=e26]:
+          - 'button "Bitcoin Punk #1234 PUNK1234 Bitcoin Punk #1234 0.00006000 +5.2% Vol: 0.45 BTC" [ref=e27]':
+            - generic [ref=e28]:
+              - 'img "Bitcoin Punk #1234" [ref=e30]'
+              - generic [ref=e31]:
+                - generic [ref=e32]: PUNK1234
+                - generic [ref=e33]: "Bitcoin Punk #1234"
+            - generic [ref=e34]:
+              - generic [ref=e35]: "0.00006000"
+              - generic [ref=e36]:
+                - img
+                - text: +5.2%
+            - generic [ref=e37]: "Vol: 0.45 BTC"
+          - 'button "Ordinal Monkey #567 MONKEY567 Ordinal Monkey #567 0.00003000 -2.1% Vol: 0.28 BTC" [ref=e38]':
+            - generic [ref=e39]:
+              - 'img "Ordinal Monkey #567" [ref=e41]'
+              - generic [ref=e42]:
+                - generic [ref=e43]: MONKEY567
+                - generic [ref=e44]: "Ordinal Monkey #567"
+            - generic [ref=e45]:
+              - generic [ref=e46]: "0.00003000"
+              - generic [ref=e47]:
+                - img
+                - text: "-2.1%"
+            - generic [ref=e48]: "Vol: 0.28 BTC"
+          - 'button "BTC Rock #89 ROCK89 BTC Rock #89 0.00012000 +8.7% Vol: 0.92 BTC" [ref=e49]':
+            - generic [ref=e50]:
+              - 'img "BTC Rock #89" [ref=e52]'
+              - generic [ref=e53]:
+                - generic [ref=e54]: ROCK89
+                - generic [ref=e55]: "BTC Rock #89"
+            - generic [ref=e56]:
+              - generic [ref=e57]: "0.00012000"
+              - generic [ref=e58]:
+                - img
+                - text: +8.7%
+            - generic [ref=e59]: "Vol: 0.92 BTC"
+      - generic [ref=e60]:
+        - generic [ref=e61]:
+          - generic [ref=e63]:
+            - generic [ref=e64]:
+              - generic [ref=e65]: PUNK1234
+              - generic [ref=e66]:
+                - generic [ref=e67]: 0.00006 BTC
+                - generic [ref=e68]:
+                  - img [ref=e69]
+                  - text: +5.2%
+            - tablist [ref=e73]:
+              - tab "1H" [ref=e74]
+              - tab "24H" [selected] [ref=e75]
+              - tab "7D" [ref=e76]
+              - tab "30D" [ref=e77]
+          - generic [ref=e78]:
+            - generic [ref=e80]:
+              - img [ref=e81]
+              - paragraph [ref=e84]: Price chart visualization
+              - paragraph [ref=e85]: Powered by Ekubo DEX
+            - generic [ref=e86]:
+              - generic [ref=e87]:
+                - generic [ref=e88]: 24h High
+                - generic [ref=e89]: "0.000065"
+              - generic [ref=e90]:
+                - generic [ref=e91]: 24h Low
+                - generic [ref=e92]: "0.000055"
+              - generic [ref=e93]:
+                - generic [ref=e94]: 24h Volume
+                - generic [ref=e95]: 0.45 BTC
+              - generic [ref=e96]:
+                - generic [ref=e97]: Market Cap
+                - generic [ref=e98]: 0.6 BTC
+        - generic [ref=e99]:
+          - generic [ref=e101]: Trade PUNK1234
+          - generic [ref=e103]:
+            - tablist [ref=e104]:
+              - tab "Buy" [selected] [ref=e105]
+              - tab "Sell" [ref=e106]
+            - tabpanel "Buy" [ref=e107]:
+              - generic [ref=e108]:
+                - generic [ref=e109]: Price (BTC per share)
+                - spinbutton "Price (BTC per share)" [ref=e110]: "0.00006"
+              - generic [ref=e111]:
+                - generic [ref=e112]: Amount (shares)
+                - spinbutton "Amount (shares)" [ref=e113]
+                - slider [ref=e117]
+                - generic [ref=e118]:
+                  - generic [ref=e119]: 0%
+                  - generic [ref=e120]: 25%
+                  - generic [ref=e121]: 50%
+                  - generic [ref=e122]: 75%
+                  - generic [ref=e123]: 100%
+              - generic [ref=e124]:
+                - generic [ref=e125]:
+                  - generic [ref=e126]: Available Balance
+                  - generic [ref=e127]: 0.10000000 BTC
+                - generic [ref=e128]:
+                  - generic [ref=e129]: Total Cost
+                  - generic [ref=e130]: 0.00000000 BTC
+              - button "Buy PUNK1234" [disabled]
+        - generic [ref=e131]:
+          - generic [ref=e133]: Recent Trades
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - generic [ref=e136]: Time
+              - generic [ref=e137]: Price
+              - generic [ref=e138]: Amount
+              - generic [ref=e139]: Type
+            - generic [ref=e140]:
+              - generic [ref=e141]:
+                - generic [ref=e142]: 14:32:15
+                - generic [ref=e143]: "0.00006000"
+                - generic [ref=e144]: "150"
+                - generic [ref=e146]: BUY
+              - generic [ref=e147]:
+                - generic [ref=e148]: 14:31:42
+                - generic [ref=e149]: "0.00005900"
+                - generic [ref=e150]: "200"
+                - generic [ref=e152]: SELL
+              - generic [ref=e153]:
+                - generic [ref=e154]: 14:30:28
+                - generic [ref=e155]: "0.00006000"
+                - generic [ref=e156]: "180"
+                - generic [ref=e158]: BUY
+              - generic [ref=e159]:
+                - generic [ref=e160]: 14:29:55
+                - generic [ref=e161]: "0.00006100"
+                - generic [ref=e162]: "220"
+                - generic [ref=e164]: BUY
+              - generic [ref=e165]:
+                - generic [ref=e166]: 14:28:33
+                - generic [ref=e167]: "0.00005800"
+                - generic [ref=e168]: "160"
+                - generic [ref=e170]: SELL
+      - generic [ref=e171]:
+        - generic [ref=e172]:
+          - generic [ref=e174]: Order Book
+          - generic [ref=e176]:
+            - tablist [ref=e178]:
+              - tab "All" [selected] [ref=e179]
+              - tab "Buy" [ref=e180]
+              - tab "Sell" [ref=e181]
+            - tabpanel "All" [ref=e182]:
+              - generic [ref=e183]:
+                - generic [ref=e184]: Price
+                - generic [ref=e185]: Amount
+                - generic [ref=e186]: Total
+              - generic [ref=e187]:
+                - generic [ref=e188] [cursor=pointer]:
+                  - generic [ref=e189]: "0.00006500"
+                  - generic [ref=e190]: 1,500
+                  - generic [ref=e191]: "0.0975"
+                - generic [ref=e192] [cursor=pointer]:
+                  - generic [ref=e193]: "0.00006400"
+                  - generic [ref=e194]: 2,100
+                  - generic [ref=e195]: "0.1344"
+                - generic [ref=e196] [cursor=pointer]:
+                  - generic [ref=e197]: "0.00006300"
+                  - generic [ref=e198]: 1,700
+                  - generic [ref=e199]: "0.1071"
+                - generic [ref=e200] [cursor=pointer]:
+                  - generic [ref=e201]: "0.00006200"
+                  - generic [ref=e202]: 1,900
+                  - generic [ref=e203]: "0.1178"
+                - generic [ref=e204] [cursor=pointer]:
+                  - generic [ref=e205]: "0.00006100"
+                  - generic [ref=e206]: 1,400
+                  - generic [ref=e207]: "0.0854"
+              - generic [ref=e208]:
+                - generic [ref=e209]: "0.00006"
+                - generic [ref=e210]: "Spread: 0.000001"
+              - generic [ref=e211]:
+                - generic [ref=e212] [cursor=pointer]:
+                  - generic [ref=e213]: "0.00006000"
+                  - generic [ref=e214]: 1,500
+                  - generic [ref=e215]: "0.0900"
+                - generic [ref=e216] [cursor=pointer]:
+                  - generic [ref=e217]: "0.00005900"
+                  - generic [ref=e218]: 2,000
+                  - generic [ref=e219]: "0.1180"
+                - generic [ref=e220] [cursor=pointer]:
+                  - generic [ref=e221]: "0.00005800"
+                  - generic [ref=e222]: 1,800
+                  - generic [ref=e223]: "0.1044"
+                - generic [ref=e224] [cursor=pointer]:
+                  - generic [ref=e225]: "0.00005700"
+                  - generic [ref=e226]: 2,200
+                  - generic [ref=e227]: "0.1254"
+                - generic [ref=e228] [cursor=pointer]:
+                  - generic [ref=e229]: "0.00005600"
+                  - generic [ref=e230]: 1,600
+                  - generic [ref=e231]: "0.0896"
+        - generic [ref=e232]:
+          - generic [ref=e233]:
+            - generic [ref=e234]: Portfolio
+            - generic [ref=e235]:
+              - generic [ref=e236]: 0.1500 BTC
+              - generic [ref=e237]: Total Value
+          - generic [ref=e239]:
+            - generic [ref=e240]:
+              - generic [ref=e241]: PUNK1234
+              - generic [ref=e242]: +9.09%
+            - generic [ref=e243]:
+              - generic [ref=e244]:
+                - generic [ref=e245]: Shares
+                - generic [ref=e246]: 2,500
+              - generic [ref=e247]:
+                - generic [ref=e248]: Avg Price
+                - generic [ref=e249]: "0.00005500"
+              - generic [ref=e250]:
+                - generic [ref=e251]: Current
+                - generic [ref=e252]: "0.00006000"
+              - generic [ref=e253]:
+                - generic [ref=e254]: Value
+                - generic [ref=e255]: 0.1500 BTC
+  - alert [ref=e256]
+```

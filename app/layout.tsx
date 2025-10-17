@@ -7,7 +7,7 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "OrdinalVault - Fractionalize Bitcoin Ordinals",
+  title: "Fractionalized Ordinals DeFi Platform",
   description:
     "Unlock the value of Bitcoin Ordinals through fractionalization. Vault, trade, and lend on the leading Bitcoin DeFi platform.",
   generator: "v0.app",

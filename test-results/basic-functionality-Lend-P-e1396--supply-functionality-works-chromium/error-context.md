@@ -1,0 +1,124 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "Back" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - button "Back" [ref=e8]:
+            - img
+            - text: Back
+        - generic [ref=e9]:
+          - heading "Lending & Borrowing" [level=1] [ref=e10]
+          - paragraph [ref=e11]: Use your fractional shares as collateral on Vesu Protocol
+      - button "Connect Starknet Wallet" [ref=e13]:
+        - img
+        - text: Connect Starknet Wallet
+    - main [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - generic [ref=e18]:
+              - generic [ref=e19]: Total Supplied
+              - img [ref=e20]
+            - generic [ref=e23]:
+              - generic [ref=e24]: 0.25 BTC
+              - paragraph [ref=e25]: ≈ $25,000 USD
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic [ref=e28]: Total Borrowed
+              - img [ref=e29]
+            - generic [ref=e32]:
+              - generic [ref=e33]: 0.08 BTC
+              - paragraph [ref=e34]: ≈ $8,000 USD
+          - generic [ref=e35]:
+            - generic [ref=e36]:
+              - generic [ref=e37]: Net APY
+              - img [ref=e38]
+            - generic [ref=e41]:
+              - generic [ref=e42]: 4.2%
+              - paragraph [ref=e43]: Earning interest
+          - generic [ref=e44]:
+            - generic [ref=e45]:
+              - generic [ref=e46]: Health Factor
+              - img [ref=e47]
+            - generic [ref=e49]:
+              - generic [ref=e50]: "2.45"
+              - paragraph [ref=e51]: Safe position
+        - generic [ref=e52]:
+          - tablist [ref=e53]:
+            - tab "Borrow" [ref=e54]
+            - tab "Supply" [active] [selected] [ref=e55]
+            - tab "My Loans" [ref=e56]
+          - tabpanel "Supply" [ref=e57]:
+            - generic [ref=e58]:
+              - generic [ref=e60]:
+                - generic [ref=e61]:
+                  - generic [ref=e62]: Supply Assets
+                  - generic [ref=e63]: Supply your fractional shares to earn interest
+                - generic [ref=e64]:
+                  - generic [ref=e65] [cursor=pointer]:
+                    - generic [ref=e66]:
+                      - generic [ref=e67]:
+                        - generic [ref=e68]: fBTP
+                        - generic [ref=e69]: Fractionalized Bitcoin Punks
+                      - generic [ref=e70]:
+                        - generic [ref=e71]:
+                          - img [ref=e72]
+                          - text: 3.5% APY
+                        - generic [ref=e75]: Can be collateral
+                    - generic [ref=e76]:
+                      - generic [ref=e77]: "Your balance: 1,000"
+                      - generic [ref=e78]: "Total supplied: 10,000"
+                  - generic [ref=e79] [cursor=pointer]:
+                    - generic [ref=e80]:
+                      - generic [ref=e81]:
+                        - generic [ref=e82]: fNMK
+                        - generic [ref=e83]: Fractionalized NodeMonkes
+                      - generic [ref=e84]:
+                        - generic [ref=e85]:
+                          - img [ref=e86]
+                          - text: 4.2% APY
+                        - generic [ref=e89]: Can be collateral
+                    - generic [ref=e90]:
+                      - generic [ref=e91]: "Your balance: 500"
+                      - generic [ref=e92]: "Total supplied: 12,000"
+              - generic [ref=e93]:
+                - generic [ref=e94]:
+                  - generic [ref=e96]: Supply Summary
+                  - generic [ref=e97]:
+                    - generic [ref=e98]:
+                      - generic [ref=e99]: 1300.0900 BTC
+                      - generic [ref=e100]: Total Supplied
+                    - generic [ref=e101]:
+                      - generic [ref=e102]:
+                        - generic [ref=e103]: Average APY
+                        - generic [ref=e104]: 3.9%
+                      - generic [ref=e105]:
+                        - generic [ref=e106]: Interest Earned
+                        - generic [ref=e107]: 65.004500 BTC
+                      - generic [ref=e108]:
+                        - generic [ref=e109]: Used as Collateral
+                        - generic [ref=e110]: 1.500000 BTC
+                - generic [ref=e111]:
+                  - generic [ref=e113]: Benefits
+                  - generic [ref=e114]:
+                    - generic [ref=e115]:
+                      - img [ref=e116]
+                      - generic [ref=e119]:
+                        - generic [ref=e120]: Earn Passive Income
+                        - generic [ref=e121]: Earn interest on your idle shares
+                    - generic [ref=e122]:
+                      - img [ref=e123]
+                      - generic [ref=e126]:
+                        - generic [ref=e127]: Use as Collateral
+                        - generic [ref=e128]: Borrow against your supplied assets
+                    - generic [ref=e129]:
+                      - img [ref=e130]
+                      - generic [ref=e133]:
+                        - generic [ref=e134]: Withdraw Anytime
+                        - generic [ref=e135]: No lock-up periods
+  - alert [ref=e136]
+```

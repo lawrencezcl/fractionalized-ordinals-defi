@@ -12,7 +12,7 @@ export function TradeLayout() {
   const [selectedMarket, setSelectedMarket] = useState("PUNK1234")
 
   return (
-    <div className="container py-6">
+    <div className="container py-6" data-testid="trading-interface">
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
         {/* Left sidebar - Market list */}
         <div className="lg:col-span-3">

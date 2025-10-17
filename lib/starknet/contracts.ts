@@ -2,6 +2,9 @@ import { Account, Contract, Provider, cairo, num, uint256, stark } from 'starkne
 import { NETWORKS, CONTRACTS, VAULT_CONFIG } from '../constants'
 import { NetworkConfig } from '../config/network'
 
+// Global ECC initialization flag
+let eccInitialized = false
+
 export interface FractionalizedOrdinalsContract {
   address: string
   name: string
@@ -55,7 +58,11 @@ export class StarknetContracts {
 
   constructor() {
     const starknetNetwork = NetworkConfig.getStarknetNetwork()
-    this.provider = new Provider({ rpc: { nodeUrl: starknetNetwork.rpcUrl } })
+    this.provider = new Provider({
+      rpc: {
+        nodeUrl: starknetNetwork.rpcUrl
+      }
+    })
   }
 
   /**

@@ -44,9 +44,13 @@ export const CONTRACTS = {
 // API endpoints
 export const API_ENDPOINTS = {
   MAGIC_EDEN: 'https://api-mainnet.magiceden.dev/v2',
+  MAGIC_EDEN_TESTNET: 'https://api-testnet.magiceden.dev/v2',
   ORDINALHUB: 'https://api.ordinalswallet.com',
   GAMMA: 'https://gamma-api.io',
-  XVERSE: 'https://api.xverse.app/v1'
+  XVERSE: 'https://api.xverse.app/v1',
+  COINGECKO: 'https://api.coingecko.com/api/v3',
+  COINBASE: 'https://api.coinbase.com/v2',
+  BINANCE: 'https://api.binance.com/api/v3'
 } as const
 
 // Vault configuration

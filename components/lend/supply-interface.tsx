@@ -188,11 +188,12 @@ export function SupplyInterface() {
                   <Input
                     id="supply-amount"
                     type="number"
-                    placeholder="0"
+                    placeholder="Amount"
                     value={supplyAmount}
                     onChange={(e) => setSupplyAmount(e.target.value)}
                     className="flex-1"
                     disabled={isSupplying}
+                    data-testid="supply-amount-input"
                   />
                   <Button
                     variant="outline"
@@ -223,6 +224,7 @@ export function SupplyInterface() {
                 size="lg"
                 onClick={handleSupply}
                 disabled={isSupplying || !supplyAmount || parseInt(supplyAmount) <= 0}
+                data-testid="supply-button"
               >
                 {isSupplying ? (
                   <>
